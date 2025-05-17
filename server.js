@@ -15,7 +15,12 @@ connectCloudinary()
 
 // middlewares
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+  origin: ['https://medi-link-swart.vercel.app', 'http://localhost:5173'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true
+}));
+
 
 // api endpoints
 app.use("/api/user", userRouter)
